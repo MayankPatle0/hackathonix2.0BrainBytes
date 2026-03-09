@@ -1,0 +1,34 @@
+{
+  "name": "nexus_backend",
+  "version": "2.0.0",
+  "description": "Nexus AI Backend with Queue System",
+  "main": "mistral_server.js",
+  "scripts": {
+    "start": "node mistral_server.js",
+    "worker": "node worker.js",
+    "monitor": "node monitoring.js",
+    "backup": "node backup.js",
+    "dev": "nodemon mistral_server.js",
+    "dev:worker": "nodemon worker.js",
+    "dev:all": "concurrently -n \"API,Worker,Monitor\" -c \"cyan,green,yellow\" \"npm run dev\" \"npm run dev:worker\" \"npm run monitor\"",
+    "start:all": "concurrently -n \"API,Worker\" -c \"cyan,green\" \"npm start\" \"npm run worker\"",
+    "start:full": "concurrently -n \"API,Worker,Monitor\" -c \"cyan,green,yellow\" \"npm start\" \"npm run worker\" \"npm run monitor\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.75.0",
+    "bullmq": "^5.4.0",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "groq-sdk": "^0.3.3",
+    "ioredis": "^5.3.2",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10"
+  }
+}
