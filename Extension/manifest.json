@@ -1,0 +1,43 @@
+
+{
+  "manifest_version": 3,
+  "name": "Nexus - Universal Memory Capture",
+  "version": "2.0.0",
+  "description": "Your digital second brain. Capture content from any platform - social media, videos, articles, and more.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "identity",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Capture to Nexus"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config.js",
+        "supabaseClient.js",
+        "Readability.js",
+        "platformDetector.js",
+        "baseExtractor.js",
+        "extractors/*.js",
+        "assets/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
