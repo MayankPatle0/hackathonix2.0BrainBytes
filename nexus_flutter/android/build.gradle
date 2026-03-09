@@ -1,0 +1,33 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Inject flutter properties only for legacy plugins (subprojects), 
+// excluding the main 'app' project to prevent collision with FlutterGradlePlugin.
+subprojects {
+    if (project.name != 'app') {
+        ext.flutter = [
+            compileSdkVersion: 34,
+            minSdkVersion: 21,
+            targetSdkVersion: 34,
+            ndkVersion: "25.1.8937393",
+            versionCode: 1,
+            versionName: "1.0.0"
+        ]
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
