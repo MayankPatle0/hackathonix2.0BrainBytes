@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "Nexus",
+    "slug": "nexus-ai",
+    "scheme": "nexus",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#09090b"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nexus.ai",
+      "buildNumber": "1"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#09090b"
+      },
+      "package": "com.nexus.ai",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ]
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
+          }
+        }
+      ],
+      [
+        "expo-share-intent",
+        {
+          "ios": {
+            "activationRules": {
+              "NSExtensionActivationSupportsText": true,
+              "NSExtensionActivationSupportsWebURLWithMaxCount": 1
+            }
+          },
+          "android": {
+            "intentFilters": [
+              {
+                "action": "SEND",
+                "mimeType": "text/plain"
+              }
+            ],
+            "launchMode": "singleTask"
+          }
+        }
+      ]
+    ],
+    "extra": {
+      "SUPABASE_URL": "https://zdibotjktsxkrokgipya.supabase.co",
+      "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpkaWJvdGprdHN4a3Jva2dpcHlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDAwOTksImV4cCI6MjA3OTExNjA5OX0.dG6WperuZxIyaEmrR9UkCqS-lxruW18u5tuRbgGNRaA",
+      "BACKEND_API_URL": "https://complete-nexus.onrender.com",
+      "FRONTEND_URL": "https://complete-nexus.vercel.app",
+      "REDIRECT_URL": "nexus://",
+      "eas": {
+        "projectId": "d217d9c3-ab4b-4dcb-adf6-ae2ae5e70933"
+      }
+    }
+  }
+}
+
